@@ -1,0 +1,6 @@
+com\adobe\cq\sling\HandleClaim.class
+com\adobe\cq\sling\impl\HelloServiceImpl.class
+com\adobe\cq\sling\impl\filters\LoggingFilter.class
+com\adobe\cq\sling\MisHandleClaim.class
+com\adobe\cq\sling\package-info.class
+com\adobe\cq\sling\HelloService.class

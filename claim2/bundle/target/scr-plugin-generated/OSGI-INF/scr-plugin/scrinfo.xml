@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component enabled="true" name="com.adobe.cq.sling.impl.HelloServiceImpl">
+        <implementation class="com.adobe.cq.sling.impl.HelloServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.cq.sling.HelloService"/>
+        </service>
+        <property name="service.pid" value="com.adobe.cq.sling.impl.HelloServiceImpl" private="false"/>
+        <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository" checked="true" strategy="event"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="com.adobe.cq.sling.impl.filters.LoggingFilter">
+        <implementation class="com.adobe.cq.sling.impl.filters.LoggingFilter"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Filter"/>
+        </service>
+        <property name="service.ranking" type="Integer" value="-700" private="false"/>
+        <property name="sling.filter.scope" value="REQUEST" private="false"/>
+        <property name="service.pid" value="com.adobe.cq.sling.impl.filters.LoggingFilter" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="Map component">
+        <implementation class="com.adobe.cq.sling.MisHandleClaim"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.resourceTypes" value="servletsling/components/content/movie-launch" private="false"/>
+        <property name="sling.servlet.extensions" value="pdf" private="false"/>
+        <property name="sling.servlet.methods" value="GET" private="false"/>
+        <property name="service.pid" value="Map component" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.adobe.cq.sling.HandleClaim">
+        <implementation class="com.adobe.cq.sling.HandleClaim"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.resourceTypes" value="services/powerproxy" private="false"/>
+        <property name="sling.servlet.selectors" value="groups" private="false"/>
+        <property name="sling.servlet.extensions" value="pdf" private="false"/>
+        <property name="sling.servlet.methods" value="GET" private="false"/>
+        <property name="service.pid" value="com.adobe.cq.sling.HandleClaim" private="false"/>
+    </scr:component>
+</components>
