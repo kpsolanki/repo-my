@@ -17,6 +17,8 @@ resourceTypes={"services/powerproxy"},
 selectors={"groups"},
 extensions="pdf")
 
+// Git Hub Configuration
+
 public class HandleClaim extends SlingAllMethodsServlet {
 	
 	/*@Reference
